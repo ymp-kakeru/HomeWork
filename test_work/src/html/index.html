@@ -1,0 +1,34 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+</head>
+<body>
+  <article>
+    <input type="text" name="test" value="" placeholder="" onchange="toggleVisibility(this)">
+    <input type="text" id="text" name="hello" value="" placeholder="" readonly style="visibility: hidden;">
+    <script>
+      function numChk(obj) {
+        let value = obj.value;
+        let regex = new RegExp(/^\d{1,}$/)
+        if ( !(regex.test(value)) ) {
+          console.log('this is not number');
+          return -1;
+        }
+        return 0;
+      }
+
+      function toggleVisibility(obj) {
+        let elm = document.getElementById('text');
+        if( numChk(obj) === 0 ) {
+          console.log('== 0');
+          elm.style = "visibility:hidden";
+          return 0;
+        }
+        console.log('to toggle');
+        elm.value = 'hello';
+        elm.style = "visibility:visible";
+      }
+    </script>
+  </article>
+</body>
